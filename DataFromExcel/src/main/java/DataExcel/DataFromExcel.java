@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.GenericArrayType;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -18,11 +19,13 @@ public class DataFromExcel {
 	FileInputStream f=new  FileInputStream(excel);
 	Workbook w= new  XSSFWorkbook(f);
 	Sheet s= w.getSheet("Data");
-	Row r= s.getRow(0);
-	Cell  c= r.getCell(0);
-	System.out.println(c);
+		int i= s.getPhysicalNumberOfRows();	
+	System.out.println("Total rows" +i);
+	Row r=s.getRow(1);
+	int j= r.getPhysicalNumberOfCells();
+	System.out.println("Total column" +j);
 	
-	}
+		}
 	
 }
 	
